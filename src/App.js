@@ -5,17 +5,24 @@ let appRenderCounter = 0;
 let childRenderCounter = 0;
 
 function Child() {
+  const [isActive, setIsActive] = useState(false);
   const handleClick = () => console.log("click");
   useEffect(() => {
     console.log("Child useEffect called");
-    window.addEventListener("click", handleClick);
+    if (isActive) window.addEventListener("click", handleClick);
 
     return () => window.removeEventListener("click", handleClick);
-  }, []);
+  }, [isActive]);
 
   childRenderCounter++;
   console.log(`Child component rendered ${childRenderCounter} time(s)`);
-  return <div className="child">Child component rendered {childRenderCounter} time(s)</div>
+  return (
+    <div className="child">
+      <p>Child component rendered {childRenderCounter} time(s)</p>
+      <button onClick={() => setIsActive(!isActive)}>Toggle Listener</button>
+      <div className={`status ${isActive ? "on" : "off"}`}></div>
+    </div>
+  );
 }
 
 function App() {
