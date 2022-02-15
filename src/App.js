@@ -24,7 +24,7 @@ function App() {
       <p>App component rendered {appRenderCounter} time(s)</p>
       <button onClick={() => setIsOnline(!isOnline)}>Toggle Status</button>
       <div className={`status ${isOnline ? "on" : "off"}`}></div>
-      <Child />
+      {isOnline? <Child /> : null}
     </div>
   );
 }
