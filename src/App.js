@@ -1,30 +1,13 @@
 import "./App.css";
-import { useEffect, useState } from "react";
 
+let renderCounter = 0;
 function App() {
-  const [stateToggle, setStateToggle] = useState(false);
 
-  useEffect(() => {
-    // 1. Declare callback
-    const handleClick = () => {
-      console.log("window click");
-    };
+  window.addEventListener('click', () => console.log('click') );
 
-    // 2. Attach the event-listener
-    window.addEventListener("click", handleClick);
-
-    // 3. Clean up: Remove the event-listener
-    return () => window.removeEventListener("click", handleClick);
-    },
-    // 4. Fill dependency array with other dependencies
-    [stateToggle]
-  );
-
-  return (
-    <button onClick={(e) => setStateToggle(!stateToggle)}>
-      State: {stateToggle.toString()}
-    </button>
-  );
+  renderCounter++;
+  console.log(`App component rendered ${renderCounter} time(s)`);
+  return <div className="app">App component rendered {renderCounter} time(s)</div>;
 }
 
 export default App;

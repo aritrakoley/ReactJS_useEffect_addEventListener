@@ -52,7 +52,6 @@ The above code has the following parts:
 ## A Deeper Dive
 ### Part One
 The goal is to print "clicked" to console every time user clicks on anywhere within the `window` element.  
-![Goal of stage #1](src/assets/giphy.webp)
 
 So we start by adding the the event-listener for 'click' events directly inside the App component.  
 (Spoiler: Bad idea. New listener attached on every render.)
