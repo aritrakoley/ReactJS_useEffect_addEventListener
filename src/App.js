@@ -1,11 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 
 let renderCounter = 0;
 function App() {
   const [isOnline, setIsOnline] = useState(false);
-  window.addEventListener("click", () => console.log("click"));
 
+  useEffect(() => {
+    console.log('App useEffect called');
+    window.addEventListener("click", () => console.log("click"));
+  }, []);
+  
   renderCounter++;
   console.log(`App component rendered ${renderCounter} time(s)`);
   return (
