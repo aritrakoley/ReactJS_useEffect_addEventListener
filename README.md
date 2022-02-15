@@ -1,5 +1,6 @@
 # Handling Event Listeners inside useEffect Hooks in React
-> **Note:** React v17.0.2 is used in the examples.
+> **Note:** React v17.0.2 is used in the examples.  
+> Code for the various parts are organized into branches in this repo
 
 The reasoning behind some of the best practices when it comes to using `event.addEventListener(...)` in React was not straight forward to me at first. This article is a way for me to keep a note of what I learnt and help out anyone who might be seeking the same knowledge.
 
